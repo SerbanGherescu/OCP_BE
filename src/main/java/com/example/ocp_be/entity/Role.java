@@ -1,19 +1,17 @@
 package com.example.ocp_be.entity;
 
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
-import java.util.Set;
 
 @Entity
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "category")
-public class Category {
+@Table(name = "role")
+public class Role {
 
     @Id
     @Column(name = "id")
@@ -23,8 +21,6 @@ public class Category {
     @Column(name = "name")
     private String name;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "category")
-    private List<Product> product;
-
-
+    @ManyToMany(mappedBy = "role")
+    private List<User> users;
 }
