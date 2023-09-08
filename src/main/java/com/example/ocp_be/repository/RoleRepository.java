@@ -1,7 +1,6 @@
 package com.example.ocp_be.repository;
 
 import com.example.ocp_be.entity.Role;
-import org.springframework.expression.spel.ast.OpAnd;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
