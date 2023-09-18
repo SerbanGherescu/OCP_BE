@@ -1,4 +1,4 @@
-package com.example.ocp_be.security;
+package com.example.ocp_be.service.impl;
 
 import com.example.ocp_be.entity.User;
 import com.example.ocp_be.repository.UserRepository;
@@ -20,7 +20,7 @@ public class UserService {
         return user;
     }
 
-    public User searchByEmail(String email) {
+    public User searchUserByEmail(String email) {
         User user = userRepository.findByEmail(email).get();
         return user;
     }

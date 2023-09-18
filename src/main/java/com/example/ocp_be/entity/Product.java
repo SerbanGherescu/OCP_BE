@@ -29,6 +29,9 @@ public class Product {
     @Column(name = "stock")
     private boolean stock;
 
+    @Column(name = "image_url")
+    private String imageUrl;
+
     @ManyToOne
     @JoinColumn(name = "category_id", nullable = false)
     private Category category;
