@@ -1,4 +1,4 @@
-package com.example.ocp_be.service.impl;
+package com.example.ocp_be.service;
 
 import com.example.ocp_be.entity.Role;
 import com.example.ocp_be.repository.RoleRepository;

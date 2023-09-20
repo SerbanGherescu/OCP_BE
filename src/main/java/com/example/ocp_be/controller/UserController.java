@@ -2,7 +2,7 @@ package com.example.ocp_be.controller;
 
 import com.example.ocp_be.entity.exceptions.ProductNotFoundException;
 import com.example.ocp_be.entity.User;
-import com.example.ocp_be.service.impl.UserService;
+import com.example.ocp_be.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -22,7 +22,7 @@ public class UserController {
 
     @GetMapping("/{id}")
     public ResponseEntity<User> getUserById(@PathVariable Long id) {
-        User user = userService.searchUserById(id);
+        User user = userService.findUserById(id);
         if (id == null) {
             throw new ProductNotFoundException("You are not allowed to ask for this user");
         }
@@ -30,7 +30,7 @@ public class UserController {
     }
     @GetMapping("/{email}")
     public ResponseEntity<User> getUserByEmail(@PathVariable String email) {
-        User user = userService.searchUserByEmail(email);
+        User user = userService.findUserByEmail(email);
         if (email == null) {
             throw new ProductNotFoundException("You are not allowed to ask for this user");
         }

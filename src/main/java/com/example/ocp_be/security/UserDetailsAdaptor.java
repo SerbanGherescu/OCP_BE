@@ -26,10 +26,16 @@ public class UserDetailsAdaptor implements UserDetails {
         return user.getPassword();
     }
 
+//    Am suprascris metoda asta ca sa creez un username pentru useri
     @Override
     public String getUsername() {
-        return user.getUsername();
+        String firstName = user.getFirstName();
+        String lastName = user.getFirstName();
+        String username = firstName.concat(lastName);
+
+        return username;
     }
+
 
     @Override
     public boolean isAccountNonExpired() {

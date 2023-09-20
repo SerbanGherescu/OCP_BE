@@ -2,7 +2,7 @@ package com.example.ocp_be.controller;
 
 import com.example.ocp_be.entity.Category;
 import com.example.ocp_be.entity.exceptions.ProductNotFoundException;
-import com.example.ocp_be.service.impl.CategoryService;
+import com.example.ocp_be.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

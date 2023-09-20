@@ -3,11 +3,15 @@ package com.example.ocp_be.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.List;
 
 @Entity
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "role")
@@ -16,11 +20,11 @@ public class Role {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @Column(name = "name")
     private String name;
 
-    @ManyToMany(mappedBy = "role")
-    private List<User> users;
+//    @ManyToMany(mappedBy = "role")
+//    private List<User> users;
 }
