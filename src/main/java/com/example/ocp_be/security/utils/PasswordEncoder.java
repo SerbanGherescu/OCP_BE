@@ -11,5 +11,5 @@ public class PasswordEncoder {
         String encodedPassword = encoder.encode(rowPassword);
         System.out.println(encodedPassword);
     }
-
+// sa fie encodata dupa bycript encoder
 }

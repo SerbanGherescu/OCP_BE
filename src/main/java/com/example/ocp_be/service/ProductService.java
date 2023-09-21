@@ -5,6 +5,8 @@ import com.example.ocp_be.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ProductService {
 
@@ -20,9 +22,10 @@ public class ProductService {
         return product;
     }
 
-    public Product searchProductByName(String name) {
-        Product product = productRepository.findByName(name).get();
-        return product;
+    public List<Product> searchProductsByName(String name) {
+        List<Product> products = productRepository.findByNameContainingIgnoreCase(name);
+
+        return products;
     }
 
     public void deleteProductById(Long id) {

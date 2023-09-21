@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/product")
 public class ProductController {
@@ -29,13 +31,18 @@ public class ProductController {
         return ResponseEntity.ok(product);
     }
 
-    @GetMapping("/{name}")
-    public ResponseEntity<Product> getProductByName(@PathVariable String name) {
-        Product product = productService.searchProductByName(name);
-        if (name == null) {
-            throw new ProductNotFoundException("You are not allowed to ask for this product");
+    @GetMapping("/search/{name}")
+    public List<Product> getProductsByName(@PathVariable String name) {
+        List<Product> products = productService.searchProductsByName(name);
+
+        if (products.isEmpty()) {
+            throw new ProductNotFoundException("Nu au fost gasite produse sub aceasta forma : "
+                    + "\n" + name
+                    + "\n" + " Poate ai scris gresit!"
+                    + "\n" + " Cauta din nou!");
         }
-        return ResponseEntity.ok(product);
+
+        return products;
     }
 
     @DeleteMapping("/{id}")
